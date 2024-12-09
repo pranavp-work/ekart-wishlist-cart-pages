@@ -2,6 +2,7 @@ import { faFacebook, faInstagram, faLinkedin, faTwitter } from '@fortawesome/fre
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -14,9 +15,9 @@ function Footer() {
         <div className='md:flex justify-center mt-10 md:mt-0'>
           <div>
             <h3 className='text-3xl'>Links</h3>
-            <p className='mt-6'>Home</p>
-            <p className='mt-3'>Wishlist</p>
-            <p className='mt-3'>Cart</p>
+            <Link to = {'/'}><p className='mt-6'>Home</p></Link>
+            <Link to = {'/wishlist'}><p className='mt-3'>Wishlist</p></Link>
+            <Link to = {'/cart'}><p className='mt-3'>Cart</p></Link>
           </div>
         </div>
         <div className='md:flex justify-center mt-10 md:mt-0'>

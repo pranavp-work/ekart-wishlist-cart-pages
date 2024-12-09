@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <>
-      <nav className='bg-violet-900 p-5 text-slate-50 w-full'>
+      <nav className='bg-violet-900 p-5 text-slate-50 w-full fixed'>
         <div className="md:flex item-center md:px-10 px-5">
 
           <div className='flex w-full'>
