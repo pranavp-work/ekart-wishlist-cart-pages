@@ -1,10 +1,12 @@
 import { faBars, faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 function Header() {
 
+  const wishlistArray = useSelector(state => state.wishlist);
   const [show, setShow] = useState(false);
 
   return (
@@ -26,7 +28,7 @@ function Header() {
             <ul className='ms-auto md:hidden flex'>
               <li>
                 <Link to = {'/wishlist'}>
-                  <button className='border border-slate-50 p-3 rounded hover:bg-slate-50 hover:text-black flex'><FontAwesomeIcon icon={faHeart} style={{color: "#ff0000",}} className='me-2' />Wishlist<span className='rounded border border-slate-50 bg-slate-50 text-black ms-2'>0</span></button>
+                  <button className='border border-slate-50 p-3 rounded hover:bg-slate-50 hover:text-black flex'><FontAwesomeIcon icon={faHeart} style={{color: "#ff0000",}} className='me-2' />Wishlist<span className='rounded border border-slate-50 bg-slate-50 text-black ms-2'>{ wishlistArray.length }</span></button>
                 </Link>
               </li>
 
@@ -41,7 +43,7 @@ function Header() {
           <ul className='ms-auto md:flex hidden'>
             <li>
               <Link to = {'/wishlist'}>
-                <button className='border border-slate-50 p-3 rounded hover:bg-slate-50 hover:text-black flex'><FontAwesomeIcon icon={faHeart} style={{color: "#ff0000",}} className='me-2' />Wishlist<span className='rounded border border-slate-50 bg-slate-50 text-black ms-2'>0</span></button>
+                <button className='border border-slate-50 p-3 rounded hover:bg-slate-50 hover:text-black flex'><FontAwesomeIcon icon={faHeart} style={{color: "#ff0000",}} className='me-2' />Wishlist<span className='rounded border border-slate-50 bg-slate-50 text-black ms-2'>{ wishlistArray.length }</span></button>
               </Link>
             </li>
 
