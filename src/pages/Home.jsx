@@ -2,12 +2,16 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
 import userFetch from './../hooks/userFetch';
+import { useDispatch } from 'react-redux';
+import { addWishlistItems } from '../redux/slices/wishlistSlice';
 
 
 function Home() {
 
   const data = userFetch('https://fakestoreapi.com/products');
   console.log(data);
+
+  const dispatch = useDispatch();
 
 
   return (
@@ -22,7 +26,7 @@ function Home() {
               <p className='text-pretty'>{ item.description.slice(0, 60) }</p>
               <p><strong>Price: </strong><span><strong>${item.price}</strong></span></p>
               <div className='flex justify-between mt-2'>
-                <button className='rounded py-2 px-3' style={{ backgroundColor: "#ff0000", }}><FontAwesomeIcon icon={faHeart} className='text-slate-50' /></button>
+                <button onClick={()=>dispatch(addWishlistItems(item))} className='rounded py-2 px-3' style={{ backgroundColor: "#ff0000", }}><FontAwesomeIcon icon={faHeart} className='text-slate-50' /></button>
                 <button className='rounded py-2 px-3' style={{ backgroundColor: "#00ff00", }}><FontAwesomeIcon icon={faCartShopping} className='text-slate-50' /></button>
               </div>
             </div>
