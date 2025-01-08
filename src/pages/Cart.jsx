@@ -46,7 +46,7 @@ function Cart() {
               <div className='shadow-xl p-5'>
                 <h2 className='text-center text-xl mb-2'>Cart Summary</h2>
                 <p>Total number of products: <span>{cartArray.length}</span></p>
-                <p>Grand Total: <span>20000</span></p>
+                <p>Grand Total: <span>${ cartArray.reduce((total, item)=> total + item.price, 0)}</span></p>
                 <button className='bg-green-700 text-slate-50 w-full mt-2 p-2'>Checkout</button>
               </div>
 
@@ -60,7 +60,7 @@ function Cart() {
             <img src="https://mycarrom.com/empty-cart.png" alt="your-cart-is-Empty" />
             <Link to={'/'}><button className='bg-green-800 text-slate-50 w-60 p-3 mt-10 hover:border hover:border-green-800 hover:text-green-800 hover:bg-slate-50'>Go back home</button></Link>
           </div>)
-          
+
         }
 
       </div>
