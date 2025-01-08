@@ -1,2 +1,2 @@
-https://ekart-wishlist-cart-pages.vercel.app.vercel.app/
+Live Demo :
 https://ekart-wishlist-cart-pages.vercel.app
