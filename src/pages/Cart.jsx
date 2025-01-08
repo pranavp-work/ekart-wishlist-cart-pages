@@ -1,13 +1,17 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, redirect, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { emptyCart, removeCartItems } from '../redux/slices/cartSlice';
 
 function Cart() {
 
   const cartArray = useSelector(state => state.cart);
   console.log(cartArray);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -35,7 +39,7 @@ function Cart() {
                       <td className='text-center'>{item.title.slice(0, 20)}</td>
                       <td className='flex justify-center'><img src={item.image} alt="no-image" className='w-24 h-16' /></td>
                       <td className='text-center'>${item.price}</td>
-                      <td className='text-center'><button><FontAwesomeIcon icon={faTrash} style={{ color: "#ff0000", }} /></button></td>
+                      <td className='text-center'><button onClick={()=>dispatch(removeCartItems(item))}><FontAwesomeIcon icon={faTrash} style={{ color: "#ff0000", }} /></button></td>
                     </tr>
                   ))
                   }
@@ -47,7 +51,7 @@ function Cart() {
                 <h2 className='text-center text-xl mb-2'>Cart Summary</h2>
                 <p>Total number of products: <span>{cartArray.length}</span></p>
                 <p>Grand Total: <span>${ cartArray.reduce((total, item)=> total + item.price, 0)}</span></p>
-                <button className='bg-green-700 text-slate-50 w-full mt-2 p-2'>Checkout</button>
+                <button onClick={()=>{ alert("Order Checkout Success!"); dispatch(emptyCart()); navigate('/'); }} className='bg-green-700 text-slate-50 w-full mt-2 p-2'>Checkout</button>
               </div>
 
             </div>

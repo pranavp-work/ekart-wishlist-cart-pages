@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faCartShopping, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeWishlistItems } from '../redux/slices/wishlistSlice';
+import { addCartItems } from '../redux/slices/cartSlice';
 
 function Wishlist() {
 
@@ -28,7 +29,7 @@ function Wishlist() {
                 <p><strong>Price: </strong><span><strong>${item.price}</strong></span></p>
                 <div className='flex justify-between mt-2'>
                   <button onClick={()=> dispatch(removeWishlistItems(item))} className='rounded py-2 px-3' style={{ backgroundColor: "#ff0000", }}><FontAwesomeIcon icon={faTrash} className='text-slate-50' /></button>
-                  <button className='rounded py-2 px-3' style={{ backgroundColor: "#00ff00", }}><FontAwesomeIcon icon={faCartShopping} className='text-slate-50' /></button>
+                  <button onClick={()=> {dispatch(addCartItems(item)); dispatch(removeWishlistItems(item));}} className='rounded py-2 px-3' style={{ backgroundColor: "#00ff00", }}><FontAwesomeIcon icon={faCartShopping} className='text-slate-50' /></button>
                 </div>
               </div>
           ))
