@@ -6,7 +6,7 @@ import { removeWishlistItems } from '../redux/slices/wishlistSlice';
 
 function Wishlist() {
 
-  const wishlistArray = useSelector((state) => state.wishlist);
+  const wishlistArray = useSelector(state => state.wishlist);
   console.log(wishlistArray);
 
   const dispatch = useDispatch();

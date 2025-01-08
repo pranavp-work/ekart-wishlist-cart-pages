@@ -4,6 +4,7 @@ import { faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
 import userFetch from './../hooks/userFetch';
 import { useDispatch } from 'react-redux';
 import { addWishlistItems } from '../redux/slices/wishlistSlice';
+import { addCartItems } from '../redux/slices/cartSlice';
 
 
 function Home() {
@@ -27,7 +28,7 @@ function Home() {
               <p><strong>Price: </strong><span><strong>${item.price}</strong></span></p>
               <div className='flex justify-between mt-2'>
                 <button onClick={()=>dispatch(addWishlistItems(item))} className='rounded py-2 px-3' style={{ backgroundColor: "#ff0000", }}><FontAwesomeIcon icon={faHeart} className='text-slate-50' /></button>
-                <button className='rounded py-2 px-3' style={{ backgroundColor: "#00ff00", }}><FontAwesomeIcon icon={faCartShopping} className='text-slate-50' /></button>
+                <button onClick={() =>dispatch(addCartItems(item))} className='rounded py-2 px-3' style={{ backgroundColor: "#00ff00", }}><FontAwesomeIcon icon={faCartShopping} className='text-slate-50' /></button>
               </div>
             </div>
           ))

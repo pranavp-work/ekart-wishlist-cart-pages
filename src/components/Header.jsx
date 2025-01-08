@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 function Header() {
 
   const wishlistArray = useSelector(state => state.wishlist);
+  const cartArray = useSelector(state => state.cart);
   const [show, setShow] = useState(false);
 
   return (
@@ -34,7 +35,7 @@ function Header() {
 
               <li>
                 <Link to = {'/cart'}>
-                  <button className='border border-slate-50 p-3 rounded ms-3 hover:bg-slate-50 hover:text-black flex'><FontAwesomeIcon icon={faCartShopping} style={{color: "#00ff00",}} className='me-2' />Cart<span className='rounded border border-slate-50 bg-slate-50 text-black ms-2'>0</span></button>
+                  <button className='border border-slate-50 p-3 rounded ms-3 hover:bg-slate-50 hover:text-black flex'><FontAwesomeIcon icon={faCartShopping} style={{color: "#00ff00",}} className='me-2' />Cart<span className='rounded border border-slate-50 bg-slate-50 text-black ms-2'>{ cartArray.length }</span></button>
                 </Link>
               </li>
             </ul>
@@ -49,7 +50,7 @@ function Header() {
 
             <li>
               <Link to = {'/cart'}>
-                <button className='border border-slate-50 p-3 rounded ms-3 hover:bg-slate-50 hover:text-black flex'><FontAwesomeIcon icon={faCartShopping} style={{color: "#00ff00",}} className='me-2' />Cart<span className='rounded border border-slate-50 bg-slate-50 text-black ms-2'>0</span></button>
+                <button className='border border-slate-50 p-3 rounded ms-3 hover:bg-slate-50 hover:text-black flex'><FontAwesomeIcon icon={faCartShopping} style={{color: "#00ff00",}} className='me-2' />Cart<span className='rounded border border-slate-50 bg-slate-50 text-black ms-2'>{ cartArray.length }</span></button>
               </Link>
             </li>
           </ul>
